@@ -27,7 +27,7 @@ const formations = [
 
 export default function Formation() {
   return (
-    <section className="flex flex-col items-center justify-center py-20 px-4 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <section className="flex flex-col items-center justify-center py-20 px-4 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100   hover:shadow-gray-200 transition-all duration-300">
       <h1 className="text-center font-bold text-4xl md:text-5xl mb-6">Expériences professionnelles</h1>
       <p className="text-center max-w-2xl mb-10 text-gray-600 dark:text-gray-300">
         Voici un aperçu de mes expériences professionnelles récentes, illustrant mes compétences techniques et ma capacité à m’adapter à différents contextes.
@@ -40,7 +40,7 @@ export default function Formation() {
         >
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-4 gap-2">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">{formation.titre}</h2>
-            <span className="text-sm text-gray-500 dark:text-gray-400">{formation.date}</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">{formation.date}</span>
           </div>
 
           <div className="space-y-4">

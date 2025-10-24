@@ -1,106 +1,118 @@
-import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
+import React, { useState, useEffect } from "react";
+import logo from "../../assets/logo.jpg";
 
-import { useEffect, useState } from 'react'
+export default function Navbar() {
+  const [activeItem, setActiveItem] = useState("Accueil");
+  const [isOpen, setIsOpen] = useState(false);
 
-const sections = [
-  'Accueil',
-  'À propos',
-  'Formations',
-  'Compétences',
-  'Projets',
-  'Expériences',
-  'Certifications',
-  'Contact'
-]
+  // Liste des sections à faire défiler
+  const navItems = [
+    { name: "Accueil", id: "accueil" },
+    { name: "Profil", id: "profil" },
+    { name: "Formation", id: "formation" },
+    { name: "Certifications", id: "certifications" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+  ];
 
-export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState('Accueil')
+  // Scroll fluide vers une section
+  const handleClick = (name, id) => {
+    setActiveItem(name);
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
 
+  // Met à jour la couleur active selon la section visible à l’écran
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting)
-        if (visible) {
-          const id = visible.target.id.replace(/-/g, ' ')
-          setActiveSection(capitalize(id))
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+        if (visibleSection) {
+          const name = visibleSection.target.getAttribute("data-name");
+          setActiveItem(name);
         }
       },
-      { threshold: 0.5 }
-    )
+      { threshold: 0.6 }
+    );
 
-    sections.forEach((section) => {
-      const el = document.getElementById(section.toLowerCase().replace(/\s/g, '-'))
-      if (el) observer.observe(el)
-    })
+    navItems.forEach((item) => {
+      const section = document.getElementById(item.id);
+      if (section) observer.observe(section);
+    });
 
-    return () => observer.disconnect()
-  }, [])
-
-  const scrollToSection = (section) => {
-    const el = document.getElementById(section.toLowerCase().replace(/\s/g, '-'))
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <aside className="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 md:p-8 bg-white dark:bg-gray-900 shadow-xl w-full max-w-xs space-y-10 sticky top-10 h-fit">
-        <nav className="space-y-8">
-          <ul className="text-lg md:text-xl font-semibold space-y-4 text-gray-800 dark:text-gray-100">
-              {sections.map((item) => (
-                <li
-                   key={item}
-                        onClick={() => scrollToSection(item)}
-                        className={`cursor-pointer transition-colors ${
-                          activeSection === item
-                            ? 'text-indigo-600 dark:text-indigo-400'
-                            : 'hover:text-indigo-600 dark:hover:text-indigo-400'
-                        }`}
-                      >
-                        {item}
-                </li>
-             ))}
-        </ul>
-        <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700 space-x-4">
-          <a
-            href="mailto:contact@example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <FaFacebook className="w-6 h-6" />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/njeva-randriamanantenasoa-947816175/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <FaLinkedin className="w-6 h-6" />
-          </a>
-
-          <a
-            href="https://github.com/clevin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <FaGithub className="w-6 h-6" />
-          </a>
-
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <FaWhatsapp className="w-6 h-6" />
-          </a>
+    <header className="bg-white dark:bg-neutral-800 shadow-md sticky top-0 z-50">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        {/* Logo */}
+        <div className="flex items-center gap-2 text-xl font-bold text-indigo-600 dark:text-white">
+          <img src={logo} alt="logo" className="w-8 h-8 rounded-full" />
+          Portfolio
         </div>
 
+        {/* Bouton menu mobile */}
+        <button
+          className="sm:hidden text-gray-600 dark:text-white focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          )}
+        </button>
+
+        {/* Menu principal */}
+        <ul
+          className={`flex flex-col sm:flex-row sm:space-x-8 mt-4 sm:mt-0 transition-all duration-300 ${
+            isOpen ? "block" : "hidden sm:flex"
+          }`}
+        >
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <button
+                onClick={() => handleClick(item.name, item.id)}
+                className={`block px-3 py-2 rounded-md font-medium transition-colors duration-200 ${
+                  activeItem === item.name
+                    ? "text-indigo-600 font-semibold"
+                    : "text-gray-600 dark:text-gray-300 hover:text-indigo-500"
+                }`}
+              >
+                {item.name}
+              </button>
+            </li>
+          ))}
+        </ul>
       </nav>
-    </aside>
-  )
+    </header>
+  );
 }

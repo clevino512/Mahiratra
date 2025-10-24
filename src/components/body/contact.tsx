@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaClipboard, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Contact() {
-  const email = 'enjevalandyrandriamanantenasoa@gmail.com'
+  const email = 'njevalandyrandriamanantenasoa@gmail.com'
   const [copied, setCopied] = useState(false)
 
   const handleCopy = () => {

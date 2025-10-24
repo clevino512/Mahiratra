@@ -57,7 +57,7 @@ const StackedListBadgeActionButton = () => {
           <div className="w-full h-px bg-gray-300 dark:bg-gray-600 mb-4" />
 
           <div className="flex flex-col md:flex-row items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
-            <p className="md:w-1/4 font-medium">
+            <p className="md:w-1/4 font-medium text-xs">
               {item.start_date} – {item.end_date}
             </p>
             <DotFilledIcon className="text-gray-400 mt-1" />

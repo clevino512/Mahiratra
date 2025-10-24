@@ -33,7 +33,7 @@ export default function Project() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-gray-200 transition-all duration-300"
+            className=" group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-gray-200 transition-all duration-300"
           >
             {/* Hover button */}
             <a

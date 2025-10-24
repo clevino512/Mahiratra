@@ -15,8 +15,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      onClick={() => setDarkMode(!darkMode)}
-      className="px-4 py-2 text-2xl rounded bg-gray-200 dark:bg-gray-900 dark:text-white"
+      onClick={() => setDarkMode(!darkMode)}   
     >
       {darkMode ? <FaSun /> : <FaMoon />}
     </button>
