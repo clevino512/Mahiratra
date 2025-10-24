@@ -33,14 +33,14 @@ export default function Project() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-amber-400 transition-all duration-300"
+            className="relative group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-gray-200 transition-all duration-300"
           >
             {/* Hover button */}
             <a
               href={project.link}
               className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
             >
-              <button className="bg-amber-400 text-black px-3 py-1 rounded-full text-sm font-semibold hover:bg-amber-500">
+              <button className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-500">
                 ➜ Détails
               </button>
             </a>

@@ -9,6 +9,8 @@ import Project from './components/body/project'
 import Certifications from './components/body/certification'
 import FooterNavs from './components/header/FooterNavs'
 import Contact from './components/body/contact'
+import Footer from './components/header/footer'
+
 
 function App() {
   const topRef = useRef(null)
@@ -37,6 +39,7 @@ function App() {
             <Certifications />
             <Contact />
             <FooterNavs scrollToTop={() => topRef.current.scrollIntoView({ behavior: 'smooth' })} />
+            <Footer />
           </div>
         </main>
       </div>

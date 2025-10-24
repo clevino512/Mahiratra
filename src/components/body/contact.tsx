@@ -1,32 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { FaClipboard, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Contact() {
+  const email = 'enjevalandyrandriamanantenasoa@gmail.com'
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
   return (
     <section className="w-full bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 py-20 px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Contact Info */}
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-red-700 dark:text-red-400">Contact</h2>
+          <h2 className="text-3xl font-bold">Contact</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
             Vous pouvez me contacter pour toute collaboration, mission freelance ou échange professionnel.
           </p>
 
           <div className="space-y-6 text-sm">
             <div>
-              <h3 className="text-lg font-semibold mb-1">Adresse</h3>
-              <p className="text-gray-800 dark:text-gray-200">A 108 Adam Street, New York, NY 535022</p>
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+                <h2 className="text-2xl font-bold">Adresse</h2>
+                <li className="flex items-center gap-3">
+                  <FaMapMarkerAlt className="text-indigo-500 text-xl" />
+                  <span>Antananarivo, Madagascar</span>
+                </li>
+
+                <h2 className="text-2xl font-bold mt-10 ">Téléphone</h2>
+                <li className="flex items-center gap-3">
+                  <FaPhone className="text-indigo-500 text-xl" />
+                  <span>+261 34 07 123 45</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <FaPhone className="text-indigo-500 text-xl" />
+                  <span>+261 34 07 123 45</span>
+                </li>
+              </ul>
             </div>
 
+            {/* Email */}
             <div>
-              <h3 className="text-lg font-semibold mb-1">Téléphone</h3>
-              <p className="text-gray-800 dark:text-gray-200">+1 5589 55488 55</p>
-              <p className="text-gray-800 dark:text-gray-200">+1 6678 254445 41</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-1">Email</h3>
-              <p className="text-gray-800 dark:text-gray-200">info@example.com</p>
-              <p className="text-gray-800 dark:text-gray-200">contact@example.com</p>
+              <h3 className="text-lg font-semibold mt-10 mb-1">Email</h3>
+              <div className="flex items-center gap-3 bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-md w-fit shadow-md">
+                <span className="text-gray-800 dark:text-gray-100 font-medium select-all">{email}</span>
+                <button
+                  onClick={handleCopy}
+                  className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+                  title="Copier"
+                >
+                  <FaClipboard className="w-5 h-5" />
+                </button>
+                {copied && (
+                  <span className="text-xs text-green-600 dark:text-green-400 font-medium">Copié !</span>
+                )}
+              </div>
             </div>
           </div>
         </div>
