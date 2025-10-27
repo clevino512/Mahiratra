@@ -4,7 +4,7 @@ import Home from "./components/body/home";
 import Profil from "./components/body/profil";
 import Formation from "./components/body/formation";
 import Project from "./components/body/project";
-import Certifications from "./components/body/certification";
+import Competence from "./components/body/certification";
 import Contact from "./components/body/contact";
 import FooterNavs from "./components/header/FooterNavs";
 import Footer from "./components/header/footer";
@@ -22,20 +22,20 @@ function App() {
         </nav>
 
         {/* Sections principales */}
-        <section id="accueil" data-name="Accueil" className="min-h-screen scroll-mt-24">
+        <section id="accueil" data-name="Accueil" className="min-h-screen scroll-mt-15">
           <Home />
         </section>
 
-        <section id="profil" data-name="Profil" className="min-h-screen scroll-mt-24">
+        <section id="profil" data-name="Profil" className="min-h-screen scroll-mt-10">
           <Profil />
         </section>
 
-        <section id="formation" data-name="Formation" className="min-h-screen scroll-mt-24">
+        <section id="experience" data-name="Expérience" className="min-h-screen scroll-mt-24">
           <Formation />
         </section>
 
-        <section id="certifications" data-name="Certifications" className="min-h-screen scroll-mt-24">
-          <Certifications />
+        <section id="compétence" data-name="Compétence" className="min-h-screen scroll-mt-24">
+          <Competence />
         </section>
 
         <section id="projects" data-name="Projects" className="min-h-screen scroll-mt-24">

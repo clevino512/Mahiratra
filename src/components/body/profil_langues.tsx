@@ -1,72 +1,50 @@
-type Langue = {
-  name: string
-  progress: number
+import React from "react";
+
+interface Langue {
+  name: string;
+  progress: number;
+  level: string;
 }
 
 const langues: Langue[] = [
-  { name: "Malagasy", progress: 100 },
-  { name: "Français", progress: 80 },
-  { name: "Anglais", progress: 60 }
-]
+  { name: "Malagasy", progress: 100, level: "Maternelle" },
+  { name: "Français", progress: 85, level: "Courant" },
+  { name: "Anglais", progress: 65, level: "Technique" },
+];
 
 export default function Langues() {
   return (
-    <div className="space-y-4">
+    <div className="w-full max-w-xl mx-auto ">
+      <h3 className="text-xl font-semibold pb-4 ">
+        Langues
+      </h3>
+
       {langues.map((langue, index) => (
-        <div
-          key={index}
-          className="w-full max-w-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md p-4 transition-colors duration-300"
-          role="alert"
-          tabIndex={-1}
-          aria-labelledby={`langue-label-${index}`}
-        >
-          <div className="flex items-center gap-4">
-            {/* Icône circulaire */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white">
-              <svg
-                className="w-5 h-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                <path d="M12 12v9" />
-                <path d="m16 16-4-4-4 4" />
-              </svg>
-            </div>
+        <div key={index} className="group relative pb-2 ">
+          {/* Nom + Pourcentage */}
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+              {langue.name}
+            </span>
+            <span className="text-sm text-gray-500 dark:text-gray-300">
+              {langue.progress}%
+            </span>
+          </div>
 
-            {/* Texte + barre */}
-            <div className="flex-1">
-              <h3
-                id={`langue-label-${index}`}
-                className="text-lg font-semibold text-gray-800 dark:text-white"
-              >
-                {langue.name}
-              </h3>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                {langue.progress}% maîtrisé
-              </span>
+          {/* Barre de progression */}
+          <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div
+              className="bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full transition-all duration-700 ease-out group-hover:bg-indigo-500"
+              style={{ width: `${langue.progress}%` }}
+            />
+          </div>
 
-              <div
-                className="mt-2 w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
-                role="progressbar"
-                aria-valuenow={langue.progress}
-                aria-valuemin={0}
-                aria-valuemax={100}
-              >
-                <div
-                  className="h-full bg-indigo-600 dark:bg-indigo-400 transition-all duration-500"
-                  style={{ width: `${langue.progress}%` }}
-                />
-              </div>
-            </div>
+          {/* Tooltip au survol */}
+          <div className="absolute left-1/2 -translate-x-1/2 -top-7 bg-gray-800 text-gray-100 text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg">
+            {langue.level}
           </div>
         </div>
       ))}
     </div>
-  )
+  );
 }

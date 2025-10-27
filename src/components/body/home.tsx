@@ -1,19 +1,19 @@
 import React from 'react';
-import image from '../../assets/image.jpg';
+import Njeva_Linkedin from '../../assets/Njeva_Linkedin.jpg';
 
 export default function Home() {
   return (
-    <section className="w-full min-h-screen px-30 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 flex items-center">
-      <div className="max-w-7xl w-full mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-20">
-
+    <section className="w-full min-h-screen px-20 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 flex items-center">
+      <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-20">
+        
         {/* Texte */}
-        <div className="text-center md:text-left max-w-3xl space-y-6">
+        <div className="text-center md:text-left w-full md:w-1/2 space-y-6">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
             <span className="text-indigo-500">Product Owner Senior</span>
           </h1>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-            RABENANTENAINA Clévin
+            RANDRIAMANANTENASOA Njeva 
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -35,12 +35,11 @@ export default function Home() {
         {/* Image */}
         <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-gray-400 dark:border-gray-600 shadow-lg ring-2 ring-indigo-300 dark:ring-indigo-500 transition-transform duration-300 hover:scale-105">
           <img
-            src={image}
+            src={Njeva_Linkedin}
             alt="photo de profil"
             className="w-full h-full object-cover"
           />
         </div>
-
       </div>
     </section>
   );

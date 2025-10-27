@@ -4,34 +4,24 @@ import { DotFilledIcon } from "@radix-ui/react-icons"
 const StackedListBadgeActionButton = () => {
   const array = [
     {
-      name: "GraphQL API",
-      status: "Certificat",
-      date: "March 17, 2023",
-      desc:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores aliquid eligendi repudiandae ullam suscipit reprehenderit odit quaerat quod? Porro quia voluptate, delectus unde pariatur tempore reiciendis iure animi aut.",
-      start_date: "March 5, 2023",
-      end_date: "February 5, 2024"
-    },
-    {
-      name: "New benefits plan",
+      name: "Doctorat en Sciences et Technologies",
       status: "Diplome",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      start_date: "March 5, 2023",
-      end_date: "February 5, 2024"
+      desc:
+        "École Doctorale Thématique, Antsiranana",
+      start_date: "2018",
+      end_date: "2022"
     },
     {
-      name: "GraphQL API",
-      status: "Certificat",
-      date: "March 17, 2023",
-      desc:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores aliquid eligendi repudiandae ullam suscipit reprehenderit odit quaerat quod? Porro quia voluptate, delectus unde pariatur tempore reiciendis iure animi aut.",
-      start_date: "March 5, 2023",
-      end_date: "February 5, 2024"
+      name: "Diplôme d’Ingénieur en Informatique Industrielle",
+      status: "Diplome",
+      desc: "École Supérieure Polytechnique d’Antsiranana",
+      start_date: "2010 ",
+      end_date: "2017"
     }
   ]
 
   return (
-    <ul role="list" className="space-y-6">
+    <ul role="list" className="space-y-3">
       {array.map((item, index) => (
         <li
           key={index}
@@ -54,14 +44,14 @@ const StackedListBadgeActionButton = () => {
             </span>
           </div>
 
-          <div className="w-full h-px bg-gray-300 dark:bg-gray-600 mb-4" />
+          <div className="w-full h-px bg-gray-300 dark:bg-gray-600 mb-1" />
 
-          <div className="flex flex-col md:flex-row items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
-            <p className="md:w-1/4 font-medium text-xs">
+          <div className=" flex flex-col md:flex-row items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <p className=" md:w-3/4 text-justify">{item.desc}</p>
+            <p className="md:w-1/4 font-medium text-xs text-end">
               {item.start_date} – {item.end_date}
             </p>
-            <DotFilledIcon className="text-gray-400 mt-1" />
-            <p className="md:w-3/4 text-justify">{item.desc}</p>
+            
           </div>
         </li>
       ))}

@@ -9,8 +9,8 @@ export default function Navbar() {
   const navItems = [
     { name: "Accueil", id: "accueil" },
     { name: "Profil", id: "profil" },
-    { name: "Formation", id: "formation" },
-    { name: "Certifications", id: "certifications" },
+    { name: "Expérience", id: "experience" },
+    { name: "Compétence", id: "compétence" },
     { name: "Projects", id: "projects" },
     { name: "Contact", id: "contact" },
   ];
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Bouton menu mobile */}
         <button
-          className="sm:hidden text-gray-600 dark:text-white focus:outline-none"
+          className="md:hidden text-gray-600 dark:text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
@@ -93,7 +93,7 @@ export default function Navbar() {
 
         {/* Menu principal */}
         <ul
-          className={`flex flex-col sm:flex-row sm:space-x-8 mt-4 sm:mt-0 transition-all duration-300 ${
+          className={`flex flex-col sm:flex-row md:flex-row sm:space-x-8 mt-4 sm:mt-0 transition-all duration-300 ${
             isOpen ? "block" : "hidden sm:flex"
           }`}
         >
