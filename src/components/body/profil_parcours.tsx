@@ -28,11 +28,11 @@ const StackedListBadgeActionButton = () => {
           className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300"
         >
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 className=" text-xs   md:text-2xl font-bold text-gray-900 dark:text-white">
               {item.name}
             </h3>
             <span
-              className={`px-3 py-1 text-sm rounded-full font-medium ${
+              className={`px-3 py-1 hidden md:block  rounded-full font-medium ${
                 item.status === "Diplome"
                   ? "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100"
                   : item.status === "Certificat"

@@ -87,9 +87,10 @@ export default function Competences() {
       {/* Titre */}
       <div className="flex flex-col w-full border-b-2 border-gray-300 dark:border-gray-700  mb-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-          <h1 className="text-4xl font-bold mb-4 md:mb-0 text-gray-900 dark:text-white">
-            Compétences
-          </h1>
+        <h1 className="text-4xl md:text-4xl lg:text-4xl font-bold mb-2 md:mb-1 text-gray-900 dark:text-white tracking-tight leading-snug">
+          Compétences
+        </h1>
+
 
           {/* Légende des couleurs */}
           <div className="flex gap-3">

@@ -11,7 +11,7 @@ export default function Profil() {
         {/* Titre + Description */}
         <div className="text-center">
           <h1 className="text-5xl font-bold">Profil</h1>
-          <p className="text-justify leading-relaxed text-lg text-gray-700 dark:text-gray-300">
+          <p className="text-center text-sm md:text-xl lg:text-2xl leading-relaxed text-gray-700 dark:text-gray-300">
             Product Owner Senior avec plus de 5 ans d’expérience dans la conception et le pilotage de produits digitaux (logiciels, applications mobiles, plateformes web).
             Spécialiste des méthodologies Agile/Scrum, j’ai dirigé et accompagné des équipes de 1 à 6 développeurs. Véritable leader et motivateur, je transforme la vision business en solutions digitales concrètes et performantes.
             Passionné par la technologie et l’innovation, je recherche des missions freelance en remote au sein d’ESN francophones en Europe.
@@ -19,8 +19,7 @@ export default function Profil() {
         </div>
 
         {/* Grille Info + Parcours */}
-        <div className="flex justify-between mx-10 gap-10">
-          
+        <div className="flex flex-col md:flex-row justify-between px-4 md:px-10 gap-6 md:gap-10 overflow-hidden">     
           {/* Info-contact + Langues */}
           <div className="space-y-8">
             <div>
@@ -45,8 +44,6 @@ export default function Profil() {
               </ul>
             </div>
 
-            {/* Langues */}
-            <Langues />
           </div>
 
           {/* Parcours Académiques */}
